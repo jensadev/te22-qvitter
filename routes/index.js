@@ -17,4 +17,22 @@ router.get("/", async (req, res) => {
   })
 })
 
+router.get("/new", (req, res) => {
+  res.render("new.njk", {
+    title: "Qvixter - New post",
+  })
+})
+
+router.post("/new", async (req, res) => {
+  const message = req.body.message
+  const author_id = 1
+  await pool
+    .promise()
+    .query("INSERT INTO tweet (message, author_id) VALUES (?, ?)", [
+      message,
+      author_id,
+    ])
+  res.redirect("/")
+})
+
 export default router
