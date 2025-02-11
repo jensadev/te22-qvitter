@@ -69,3 +69,16 @@ h1, h2, h3, h4 {
     height: 4rem;
   }
 }
+
+.button-icon {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.button-icon:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}

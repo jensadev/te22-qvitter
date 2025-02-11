@@ -16,18 +16,49 @@
         <p>{{ tweet.message }}</p>
         <footer>
           <ul>
-            <li>Shared</li>
-            <li>Reply</li>
-            <li>Favourite</li>
+            <li>
+              <button class="button-icon">
+                <span class="material-symbols-outlined">
+                  share
+                </span>
+              </button>
+            </li>
+            <li>
+              <button class="button-icon">
+                <span class="material-symbols-outlined">
+                  reply
+                </span>
+              </button>
+            </li>
+            <li>
+              <button class="button-icon">
+                <span class="material-symbols-outlined">
+                  favorite
+                </span>
+              </button>
+            </li>
+            <li>
+              <a href="/tweets/{{ tweet.id }}/edit" class="button-icon">
+                <span class="material-symbols-outlined">
+                  edit
+                </span>
+              </a>
+            </li>
             <!-- tre sätt att göra delete funktionen, get, form med get, post -->
             <!-- <li><a href="/tweets/{{ tweet.id }}/delete">Soptunneikon</a></li> -->
             <!-- <li><form action="/tweets/{{ tweet.id }}/delete" method="get">
               <button type="submit">Soptunneikon</button>
             </form></li> -->
-            <li><form action="/tweets/delete" method="post">
-              <input type="hidden" name="id" value="{{ tweet.id }}">
-              <button type="submit">Soptunneikon</button>
-            </form></li>
+            <li>
+              <form action="/tweets/delete" method="post">
+                <input type="hidden" name="id" value="{{ tweet.id }}">
+                <button type="submit" class="button-icon">
+                  <span class="material-symbols-outlined">
+                    delete
+                  </span>
+                </button>
+              </form>
+            </li>
           </ul>
         </footer>
       </article>
