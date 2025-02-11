@@ -11,8 +11,8 @@ router.get("/", async (req, res) => {
     ORDER BY updated_at DESC;`)
 
   res.render("index.njk", {
-    title: "Qvixter - All posts",
-    message: "Message from routes/index.js",
+    title: "Fireplace - All posts",
+    message: "This is fine...",
     tweets: tweets,
   })
 })
