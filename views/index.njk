@@ -13,6 +13,9 @@
           <h2>{{ tweet.name }}</h2>
           <time datetime="{{ tweet.date }}">{{ tweet.date }}</time>
         </header>
+        {% if tweet.reply_to %}
+        <p>This is a reply in a <a href="/thread/{{ tweet.reply_to }}">thread</a>.</p>
+        {% endif %}
         <p>{{ tweet.message }}</p>
         <footer>
           <ul>
@@ -24,11 +27,11 @@
               </button>
             </li>
             <li>
-              <button class="button-icon">
+              <a href="/thread/{{ tweet.id }}" class="button-icon">
                 <span class="material-symbols-outlined">
                   reply
                 </span>
-              </button>
+              </a>
             </li>
             <li>
               <button class="button-icon">

@@ -1,0 +1,19 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<main class="container region flow">
+  <h1>Thread for</h1>
+  <p>{{ tweet.message }} by {{tweet.name }}</p>
+  <ul>
+    {% for reply in replies %}
+    <li>{{ reply.message }} by {{ reply.name }}</li>
+    {% endfor %}
+  </ul>
+  <form action="/thread/" method="post" class="tweet-form">
+    <input type="hidden" name="id" value="{{ tweet.id }}">
+    <label for="message">Reply: </label>
+    <textarea id="message" name="message"  rows="4"></textarea>
+    <button type="submit">Post reply</button>
+  </form>
+</main>
+{% endblock %}
