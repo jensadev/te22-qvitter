@@ -6,28 +6,35 @@
   <p>{{ message }}</p>
   <ul class="tweets flow">
     {% for tweet in tweets %}
-      <li class="tweet">
-        <article>
-          <header>
-            <h2>{{ tweet.name }}</h2>
-            <time datetime="{{ tweet.date }}">{{ tweet.date }}</time>
-
-          </header>
-          <p>{{ tweet.message }}</p>
-          <footer>
-            <ul>
-              <li>Shared</li>
-              <li>Reply</li>
-              <li>Favourite</li>
-            </ul>
-          </footer>
-        </article>
-      </li>
+    <li class="tweet">
+      <article>
+        <header>
+          <h2>{{ tweet.name }}</h2>
+          <time datetime="{{ tweet.date }}">{{ tweet.date }}</time>
+        </header>
+        <p>{{ tweet.message }}</p>
+        <footer>
+          <ul>
+            <li>Shared</li>
+            <li>Reply</li>
+            <li>Favourite</li>
+            <!-- <li><a href="/tweets/{{ tweet.id }}/delete">Soptunneikon</a></li> -->
+            <!-- <li><form action="/tweets/{{ tweet.id }}/delete" method="get">
+              <button type="submit">Soptunneikon</button>
+            </form></li> -->¨
+            <li><form action="/tweets/delete" method="post">
+              <input type="hidden" name="id" value="{{ tweet.id }}">
+              <button type="submit">Soptunneikon</button>
+            </form></li>
+          </ul>
+        </footer>
+      </article>
+    </li>
     {% endfor %}
   </ul>
 </main>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const timeElements = document.querySelectorAll("time[datetime]");
     timeElements.forEach(timeElement => {
       const date = new Date(timeElement.getAttribute("datetime"));
