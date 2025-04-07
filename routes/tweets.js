@@ -87,7 +87,7 @@ router.get("/:id", async (req, res) => {
     if (!Number.isInteger(Number(id))) { return res.status(400).send("Invalid ID") }
     const rows = await db.get("SELECT * FROM tweet JOIN user ON tweet.author_id = user.id WHERE tweet.id = ? LIMIT 1", id)
     console.log(rows)
-    if (rows.length === 0) {
+    if (!rows) {
         return res.status(404).send("Tweet not found")
     }
     res.render("tweet.njk", {
