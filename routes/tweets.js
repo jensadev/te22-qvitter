@@ -69,7 +69,7 @@ router.get("/new", (req, res) => {
 router.post("/new", async (req, res) => {
     const message = req.body.message
     const author_id = 1
-    await db.run("INSERT INTO tweet (message, author_id) VALUES (?, ?)", message, author_id);
+    await db.run("INSERT INTO tweet (message, author_id) VALUES (?, ?)", message, author_id)
     res.redirect("/")
 })
 

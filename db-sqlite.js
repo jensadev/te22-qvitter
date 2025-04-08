@@ -21,7 +21,10 @@ await db.exec(`
 await db.exec(`
   CREATE TABLE IF NOT EXISTS user (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT
+    name VARCHAR(255),
+    password VARCHAR(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
 `);
 // Insert a default user if the table is empty
