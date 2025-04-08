@@ -27,18 +27,13 @@
         canvas.height = window.innerHeight
         const ctx = canvas.getContext("2d")
 
-        let radius = 40
-
         const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
 
         document.addEventListener("mousemove", (e) => {
             ctx.fillStyle = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
-            let x = clamp(e.offsetX, 0, canvas.width)
-            let y = clamp(e.offsetY, 0, canvas.height)
             ctx.beginPath()
-            ctx.arc(x, y, radius, 0, 2 * Math.PI)
+            ctx.arc(clamp(e.offsetX, 0, canvas.width), clamp(e.offsetY, 0, canvas.height), 40, 0, 2 * Math.PI)
             ctx.fill()
-            console.log(x, y, canvas.width, canvas.height)
         })
 
         document.addEventListener("click", (e) => {
